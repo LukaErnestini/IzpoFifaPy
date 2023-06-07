@@ -192,11 +192,11 @@ def get_stats(userId, gamedayId):
 
     # Goal Distance Ratio
     # adjust this value based on your definition of a long-range shot
-    long_range_goals = goals_df[goals_df['distance'] > 13]
+    long_range_goals = goals_df[goals_df['distance'] > 16]
     long_range_goals_ratio = (long_range_goals.groupby(
         'shooterId').size() / goals).round(2)
     dfShots = dfShots.join(long_range_goals_ratio.rename(
-        'LongRangeGoalRatio(13m+)'), on='playerId')
+        'LongRangeGoalRatio(16m+)'), on='playerId')
 
     def categorize_attempts_by_time(df, time_buckets):
         """
